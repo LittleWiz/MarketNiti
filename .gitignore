@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 # Database files
 data/*.db
+/ExploreIdeas/TCS_2025_Jan_Apr.csv
+/data/nifty_stocks.db

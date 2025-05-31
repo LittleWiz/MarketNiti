@@ -7,7 +7,7 @@ Requirements:
 - Store the data in a SQLite database for further analysis.
 
 Description:
-Market Niti is a project focused on gathering, processing, and storing historical stock data for NIFTY index companies. The system fetches daily close prices using the yfinance package and stores them in a structured SQLite database. The project is designed to be extensible, allowing new stocks to be added easily.
+Market Niti is a project focused on gathering, processing, and storing historical stock data for NIFTY index companies. The system fetches daily close prices using the yfinance package and stores them in a structured SQLite database. The project is designed to be extensible, allowing new stocks to be added easily and supporting further analysis and visualization.
 
 Project Structure:
 MarketNiti/
@@ -54,10 +54,24 @@ Usage:
 To set up the project, run:
     ./setup.sh
 
+Development & Roadmap:
+- See TODO.md for planned features and ongoing tasks, including:
+  - Automating daily data updates
+  - Handling missing data and errors
+  - Adding new columns for extended analysis
+  - Data visualization scripts
+  - Unit and integration tests
+
 Notes:
-- Only the stock name, date, and close price are stored in the database.
+- Only the stock name, date, and close price are stored in the database by default.
 - To add new stocks, update the list in src/stock_list.py.
 - A delay is included between requests to avoid being blocked by Yahoo Finance.
 - Use a SQLite browser (e.g., DB Browser for SQLite) to inspect the database visually.
 - For quick experiments, use the ExploreIdeas/ folder.
-- Refer to code comments and TODO.md for further development tasks.
+- Refer to code comments and TODO.md for further development tasks and ideas.
+
+Contributing:
+- Contributions are welcome. Please see TODO.md for open tasks or suggest improvements via pull requests.
+
+License:
+- This project is for educational and research purposes. Please review the LICENSE file for more information.
