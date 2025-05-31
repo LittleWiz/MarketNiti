@@ -51,6 +51,9 @@ Usage:
 
 6. Use the data in data/nifty_stocks.db for analysis, modeling, or visualization.
 
+To set up the project, run:
+    ./setup.sh
+
 Notes:
 - Only the stock name, date, and close price are stored in the database.
 - To add new stocks, update the list in src/stock_list.py.
