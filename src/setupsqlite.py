@@ -10,16 +10,26 @@ db_path = os.path.join(db_dir, "nifty_stocks.db")
 conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
-# Create the table for storing stock data
+# Create the table for storing stock master data
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS stock (
+    symbol TEXT PRIMARY KEY,
+    name TEXT,
+    category TEXT
+)
+""")
+
+# Create the table for storing daily stock data
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS stock_data (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    stock_name TEXT NOT NULL,
+    symbol TEXT NOT NULL,
     date TEXT NOT NULL,
-    close REAL
+    close REAL,
+    FOREIGN KEY(symbol) REFERENCES stock(symbol)
 )
 """)
 
 conn.commit()
 conn.close()
-print(f"SQLite database and table created at: {db_path}")
+print(f"SQLite database and tables created at: {db_path}")
