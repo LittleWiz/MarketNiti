@@ -28,7 +28,7 @@ def fetch_and_store():
                 print(f"No data for {symbol}")
                 continue
             for date, row in data.iterrows():
-                insert_stock_data(symbol, date.strftime("%Y-%m-%d"), float(row['Close']))
+                insert_stock_data(symbol, date.strftime("%Y-%m-%d"), float(row['Close'].iloc[0]))
             print(f"Stored data for {symbol}")
         except Exception as e:
             print(f"Error fetching {symbol}: {e}")
