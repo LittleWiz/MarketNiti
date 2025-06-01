@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 from datetime import datetime, timedelta
+import os
 
 DB_PATH = r"D:\Projects\MarketNiti\data\nifty_stocks.db"
 TABLE_NAME = "stock_data"
@@ -94,3 +95,10 @@ def prepare_performance_summary(db_path=DB_PATH):
 # Example usage:
 df_summary = prepare_performance_summary()
 print(df_summary)
+
+# Store df_summary as CSV in D:\Projects\MarketNiti\data\processed
+output_dir = r"D:\Projects\MarketNiti\data\processed"
+os.makedirs(output_dir, exist_ok=True)
+output_path = os.path.join(output_dir, "performance_summary.csv")
+df_summary.to_csv(output_path, index=False)
+print(f"Performance summary saved to: {output_path}")
