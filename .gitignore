@@ -176,8 +176,6 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
-# Click-Once directory
-publish/
 
 # Publish Web Output
 *.[Pp]ublish.xml
@@ -367,3 +365,5 @@ data/*.db
 /ExploreIdeas/TCS_2025_Jan_Apr.csv
 /data/nifty_stocks.db
 *.csv
+/Investment Presentation.xlsx
+*.xlsx

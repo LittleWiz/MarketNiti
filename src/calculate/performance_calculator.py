@@ -89,16 +89,5 @@ def prepare_performance_summary(db_path=DB_PATH):
         except Exception as e:
             print(f"Error processing {company_name} ({symbol}): {e}")
             continue
-    columns = ['Company', 'Category', 'Last', 'Mtd', 'Ytd', '1d', '1y', '2y', '5y', '10y', '20y']
+    columns = ['Company', 'Category', 'Last', '1d', 'Mtd', 'Ytd', '1y', '2y', '5y', '10y', '20y']
     return pd.DataFrame(summary, columns=columns)
-
-# Example usage:
-df_summary = prepare_performance_summary()
-print(df_summary)
-
-# Store df_summary as CSV in D:\Projects\MarketNiti\data\processed
-output_dir = r"D:\Projects\MarketNiti\data\processed"
-os.makedirs(output_dir, exist_ok=True)
-output_path = os.path.join(output_dir, "performance_summary.csv")
-df_summary.to_csv(output_path, index=False)
-print(f"Performance summary saved to: {output_path}")
