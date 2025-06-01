@@ -1,11 +1,14 @@
-import yfinance as yf
-import time
+import sys
 import os
-from datetime import datetime, timedelta
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from stock_list import get_nifty_symbols
 from db_utils import insert_stock_data
 
-START_DATE = (datetime.now() - timedelta(days=365*10)).strftime("%Y-%m-%d")
+import yfinance as yf
+import time
+from datetime import datetime, timedelta
+
+START_DATE = (datetime.now() - timedelta(days=365*20)).strftime("%Y-%m-%d")
 END_DATE = datetime.now().strftime("%Y-%m-%d")
 TIMEOUT_BETWEEN_REQUESTS = 2  # seconds
 

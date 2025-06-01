@@ -2,7 +2,9 @@ import sqlite3
 import os
 
 def get_db_path():
-    db_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+    # Get the project root (parent of 'src')
+    project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    db_dir = os.path.join(project_root, "data")
     return os.path.join(db_dir, "nifty_stocks.db")
 
 def insert_stock_data(stock_name, date, close):
@@ -10,7 +12,7 @@ def insert_stock_data(stock_name, date, close):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute(
-        "INSERT INTO stock_data (stock_name, date, close) VALUES (?, ?, ?)",
+        "INSERT INTO stock_data (symbol, date, close) VALUES (?, ?, ?)",
         (stock_name, date, close)
     )
     conn.commit()

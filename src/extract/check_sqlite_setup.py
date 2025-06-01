@@ -6,24 +6,16 @@ def get_db_path():
     db_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
     return os.path.join(db_dir, "nifty_stocks.db")
 
-def check_table_exists(db_path, table_name="stock_data"):
-    """Check if the specified table exists in the SQLite database."""
+def get_all_table_names(db_path):
+    """Return a list of all table names in the SQLite database."""
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
-    cursor.execute(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name=?;",
-        (table_name,)
-    )
-    result = cursor.fetchone()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = [row[0] for row in cursor.fetchall()]
     conn.close()
-    if result:
-        print(f"Table '{table_name}' exists.")
-        return True
-    else:
-        print(f"Table '{table_name}' does NOT exist.")
-        return False
+    return tables
 
-def print_table_schema(db_path, table_name="stock_data"):
+def print_table_schema(db_path, table_name):
     """Print the schema (columns) of the specified table."""
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
@@ -39,5 +31,10 @@ def print_table_schema(db_path, table_name="stock_data"):
 
 if __name__ == "__main__":
     db_path = get_db_path()
-    if check_table_exists(db_path):
-        print_table_schema(db_path)
+    table_names = get_all_table_names(db_path)
+    if not table_names:
+        print("No tables found in the database.")
+    else:
+        for table in table_names:
+            print_table_schema(db_path, table)
+            print()

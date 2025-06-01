@@ -123,7 +123,9 @@ STOCKS = [
 ]
 
 def insert_stock_master():
-    db_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+    project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    db_dir = os.path.join(project_root, "data")
+    os.makedirs(db_dir, exist_ok=True)
     db_path = os.path.join(db_dir, "nifty_stocks.db")
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
