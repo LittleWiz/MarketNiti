@@ -33,6 +33,11 @@ try:
     )
     """)
 
+    # Create a unique index on symbol and date in stock_data table
+    cursor.execute("""
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_symbol_date ON stock_data(symbol, date);
+    """)
+
     conn.commit()
     conn.close()
 

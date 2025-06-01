@@ -6,8 +6,8 @@
 - [x] Fetch data for all 150 NIFTY stocks
 - [ ] Set up execution flow for history
 - [ ] Set up job to update the data everyday
-- [ ] Include logic to create new columns
-- [ ] Handle missing data and errors
+- [x] Include logic to create new columns
+- [x] Handle missing data and errors
 - [ ] Automate data updates
 - [ ] Add data visualization scripts
 - [ ] Write unit tests
