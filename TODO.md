@@ -9,5 +9,6 @@
 - [x] Include logic to create new columns
 - [x] Handle missing data and errors
 - [ ] Automate data updates
+- [x] Log data updates
 - [ ] Add data visualization scripts
 - [ ] Write unit tests

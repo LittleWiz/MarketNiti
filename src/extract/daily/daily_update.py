@@ -4,6 +4,12 @@ import time
 from datetime import datetime, timedelta
 import yfinance as yf
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from mylogger import Logger
+logger = Logger("daily_update") 
+
 # Helper to get DB path (reuse logic from db_utils.py)
 def get_db_path():
     # Go up four levels to reach the project root

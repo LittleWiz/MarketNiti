@@ -2,3 +2,4 @@ nsepy
 yfinance
 pytest
 xlsxwriter
+logger

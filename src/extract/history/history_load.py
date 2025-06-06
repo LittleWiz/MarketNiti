@@ -8,6 +8,10 @@ import yfinance as yf
 import time
 from datetime import datetime, timedelta
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from mylogger import Logger
+logger = Logger("history_load") 
+
 START_DATE = (datetime.now() - timedelta(days=365*20)).strftime("%Y-%m-%d")
 END_DATE = datetime.now().strftime("%Y-%m-%d")
 TIMEOUT_BETWEEN_REQUESTS = 2  # seconds
