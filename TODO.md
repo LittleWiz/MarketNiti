@@ -5,10 +5,10 @@
 - [x] Set up sql database
 - [x] Fetch data for all 150 NIFTY stocks
 - [ ] Set up execution flow for history
-- [ ] Set up job to update the data everyday
+- [x] Set up job to update the data everyday
 - [x] Include logic to create new columns
 - [x] Handle missing data and errors
-- [ ] Automate data updates
+- [x] Automate data updates
 - [x] Log data updates
 - [ ] Add data visualization scripts
 - [ ] Write unit tests

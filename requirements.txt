@@ -3,3 +3,4 @@ yfinance
 pytest
 xlsxwriter
 logger
+apscheduler
